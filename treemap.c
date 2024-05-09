@@ -83,13 +83,12 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
       return current->pair;
     if(tree->lower_than(key, current->pair->key) == 1)
     {
-      current = current->left;//si es menor va a la izquierda
-      return current->pair;
+      current = current->right;//si es menor va a la izquierda
+      //return current->pair;
     }
-      
     else{
-      current = current->right; //sino va a la derecha
-      return current->pair;
+      current = current->left; //sino va a la derecha
+      //return current->pair;
     } 
   }
   return NULL;
