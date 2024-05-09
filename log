@@ -68,3 +68,21 @@ Thu 09 May 2024 03:51:38 PM UTC:
  tests:  11|6
 total_score: 15/70
 e9d5ce9
+Thu 09 May 2024 04:07:39 PM UTC: 
+ treemap.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:54:51: error: expected expression before ‘==’ token
+   54 |       if(tree->lower_than(key,current->pair->key))==1)
+      |                                                   ^~
+treemap.c:54:7: error: this ‘if’ clause does not guard... [-Werror=misleading-indentation]
+   54 |       if(tree->lower_than(key,current->pair->key))==1)
+      |       ^~
+treemap.c:54:54: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   54 |       if(tree->lower_than(key,current->pair->key))==1)
+      |                                                      ^
+treemap.c:54:54: error: expected statement before ‘)’ token
+cc1: all warnings being treated as errors
+Compilation failed
+3c764e8
