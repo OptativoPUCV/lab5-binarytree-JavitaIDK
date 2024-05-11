@@ -154,3 +154,9 @@ treemap.c:122:15: error: ‘TreeNode’ has no member named ‘parernt’; did y
       |               parent
 Compilation failed
 24ed212
+Sat 11 May 2024 11:49:36 PM UTC: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  17|4
+total_score: 35/70
+942de7d
