@@ -81,8 +81,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         if(currentAUX->right != NULL) currentAUX = currentAUX->right; //si hay nodo derecho, avanza a la derecha
       }
     }
-  
-
 }
 
 TreeNode * minimum(TreeNode * nodo){
@@ -126,6 +124,19 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       node->pair->key = minimo->pair->key;
       node->pair->value = minimo->pair->value;
       removeNode(tree,minimo);
+    }
+    else if(node->right != NULL)
+    {
+      if(node->parent->left == node)
+      {
+        node->parent->left = node->right;
+        node->right->parent = node->parent;
+      }
+      if(node->parent->right == node)
+      {
+        node->parent->right = node->right;
+        node->right->parent = node->parent;
+      }
     }
   }
 }
