@@ -167,6 +167,7 @@ Pair * upperBound(TreeMap * tree, void* key)
         nodo = nodo->left;
       }
     }
+  return NULL;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
