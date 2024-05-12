@@ -164,7 +164,9 @@ Pair * upperBound(TreeMap * tree, void* key)
         return nodo->pair;
       }else if(tree->lower_than(nodo->pair->key,key))
         nodo = nodo->right;
-      else{
+      else
+      {
+        ID = nodo;
         nodo = nodo->left;
       }
     }
