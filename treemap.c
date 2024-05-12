@@ -168,10 +168,24 @@ Pair * firstTreeMap(TreeMap * tree) {
   TreeNode *nodo = tree->root;
   if(nodo->left != NULL)
     nodo = nodo->left;
-  tree -> current = nodo;
+  tree->current = nodo;
   return nodo->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+  TreeNode *current = tree->current;
+  if(current->right != NULL)
+  {
+    current = current->right;
+    while(current->left != NULL)
+        current = current->left;
+    return current->pair;
+  }else{
+    TreeNode *aux = current->parent;
+    while(aux != NULL && current == aux->right)
+      {
+        current = aux;
+        aux = aux->parent;
+      }
+  }
 }
