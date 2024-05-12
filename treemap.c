@@ -25,7 +25,6 @@ int is_equal(TreeMap* tree, void* key1, void* key2){
     else return 0;
 }
 
-
 TreeNode * createTreeNode(void* key, void * value) {
     TreeNode * new = (TreeNode *)malloc(sizeof(TreeNode));
     if (new == NULL) return NULL;
@@ -44,7 +43,6 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
   map->lower_than = lower_than;
   return map;
 }
-
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
   if(tree == NULL)return;
@@ -97,7 +95,6 @@ TreeNode * minimum(TreeNode * nodo){
     return nodo;
 }
 
-
 void removeNode(TreeMap * tree, TreeNode* node) {
   //caso 1: nodo sin hijos
   if(node->left == NULL && node->right == NULL)
@@ -132,7 +129,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
   }
 }
-//5.Nodo con dos hijos: Descienda al hijo derecho y obtenga el menor nodo del subárbol (con la función minimum). Reemplace los datos (key,value) de node con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función removeNode).
+
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
 
@@ -141,9 +138,6 @@ void eraseTreeMap(TreeMap * tree, void* key){
     removeNode(tree, node);
 
 }
-
-
-
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
   tree->current = tree->root;
@@ -158,9 +152,21 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   return NULL;
 }
 
-
-Pair * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+Pair * upperBound(TreeMap * tree, void* key)
+{
+  TreeNode *nodo = tree->root;
+  while(nodo != NULL)
+    {
+      if(is_equal(tree,nodo->pair->key, key))
+      {
+        tree->current = nodo;
+        return nodo->pair;
+      }else if(tree->lower_than(nodo->pair->key,key))
+        nodo = nodo->right;
+      else{
+        nodo = nodo->left;
+      }
+    }
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
